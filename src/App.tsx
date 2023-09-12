@@ -16,15 +16,18 @@ import { Slider } from "./components/ui/slider";
 export function App() {
   return (
     <div className="bg-background text-foreground min-h-screen flex flex-col">
-      <div className="px-6 py-3 flex items-center justify-between border-b">
-        <h1 className="text-xl font-bold">upload.ai</h1>
+      <div className="px-6 py-3 flex items-center justify-between border-b border-secondary">
+        <h1 className="text-xl font-bold text-primary">upload.ai</h1>
 
         <div className="flex items-center justify-center gap-3">
-          <span className="text-muted-foreground">
+          <span className="text-foreground">
             Desenvolvido com ❤️ no NLW da Rocketseat
           </span>
           <Separator orientation="vertical" className="h-6" />
-          <Button variant="outline">
+          <Button
+            variant="outline"
+            className="bg-primary text-primary-foreground"
+          >
             <Github className="w4 h-4 mr-2" />
             GitHub
           </Button>
@@ -55,7 +58,7 @@ export function App() {
           <form className="space-y-6 ">
             <label
               htmlFor="video"
-              className="border flex rounder-md aspect-video cursor-pointer border-dashed text-small flex-col gap-2 items-center justify-center text-muted-foreground hover:bg-primary/20"
+              className="border flex rounder-md aspect-video cursor-pointer border-dashed text-small flex-col gap-2 items-center justify-center text-foreground hover:bg-primary/20"
             >
               <FileVideo className="w-4 h4" />
               Selecione um video
@@ -75,12 +78,12 @@ export function App() {
               </Label>
               <Textarea
                 id="transcription_prompt"
-                className="h-20 leading-relaxed resize-none"
+                className="h-20 leading-relaxed resize-none bg-secondary text-secondary-foreground"
                 placeholder="Inclua palavras-chave mencionadas no video separadas por vírgula (,)"
               />
             </div>
 
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full text-primary-foreground">
               Carregar Video <Upload className="w-4 h-4 ml-2" />{" "}
             </Button>
           </form>
@@ -89,12 +92,20 @@ export function App() {
             <div className="space-y-2">
               <Label>Prompt</Label>
               <Select>
-                <SelectTrigger>
+                <SelectTrigger className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground">
                   <SelectValue placeholder="Selecione um prompt" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="title">Título do YouTube</SelectItem>
-                  <SelectItem value="description">
+                <SelectContent className="bg-secondary text-secondary-foreground">
+                  <SelectItem
+                    value="title"
+                    className="focus:bg-primary focus:text-primary-foreground"
+                  >
+                    Título do YouTube
+                  </SelectItem>
+                  <SelectItem
+                    value="description"
+                    className="focus:bg-primary focus:text-primary-foreground"
+                  >
                     Descrição do YouTube
                   </SelectItem>
                 </SelectContent>
@@ -103,10 +114,10 @@ export function App() {
             <div className="space-y-2">
               <Label>Modelo</Label>
               <Select defaultValue="gpt3.5" disabled>
-                <SelectTrigger>
+                <SelectTrigger className="bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground">
                   <SelectValue />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="bg-secondary text-secondary-foreground">
                   <SelectItem value="gpt3.5">GPT 3.5-Turbo 16k</SelectItem>
                 </SelectContent>
               </Select>
